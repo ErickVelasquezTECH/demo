@@ -1,4 +1,4 @@
-package org.example.demo;
+package org.example.login;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -39,7 +39,7 @@ public class LoginDamApp extends Application {
         Button buttonEntrar = new Button("Entrar");
         Button buttonSalir = new Button("Salir");
 
-
+        //Botones con HBox
         HBox botones = new HBox(30, buttonEntrar, buttonSalir);
 
         root.getChildren().addAll(
@@ -60,7 +60,7 @@ public class LoginDamApp extends Application {
         VBox.setMargin(userText, new Insets(5, 30, 5, 30));
         VBox.setMargin(passwordField, new Insets(5, 30, 20, 30));
 
-
+        //ESTILOS
         labelTitle.setStyle(
                 "-fx-font-weight: bold;"
         );
