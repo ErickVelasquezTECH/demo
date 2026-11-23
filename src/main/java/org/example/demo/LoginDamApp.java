@@ -56,6 +56,7 @@ public class LoginDamApp extends Application {
         botones.getChildren().add(bt1);
         botones.getChildren().add(bt2);
 
+
         nodes.add(botones);
 
 
