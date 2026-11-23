@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -24,9 +23,10 @@ public class LoginDamApp extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage){
 
-        Label window = new Label("Login JavaFX de Erick");
+        VBox root = new VBox();
+
 
         Label labelTitle = new Label("LOGIN DAM");
         labelTitle.setFont(new Font("Arial", 18));
@@ -34,13 +34,15 @@ public class LoginDamApp extends Application {
 
         Label user = new Label("Usuario");
         TextField userText = new TextField();
+
         Label password = new Label("Contraseña");
         PasswordField passwordField = new PasswordField();
+
         Button bt1 = new Button("Entrar");
         Button bt2 = new Button("Salir");
 
 
-        VBox root = new VBox();
+
 
 
         List<Node> nodes = new ArrayList<>();
@@ -54,10 +56,7 @@ public class LoginDamApp extends Application {
         botones.getChildren().add(bt1);
         botones.getChildren().add(bt2);
 
-
         nodes.add(botones);
-
-        root.getChildren().addAll(nodes);
 
 
         root.setAlignment(Pos.CENTER);
@@ -68,10 +67,11 @@ public class LoginDamApp extends Application {
         VBox.setMargin(userText, new Insets(5, 30, 5, 30));
         VBox.setMargin(passwordField, new Insets(5, 30, 20, 30));
 
+
         scene = new Scene(root, 400, 450);
-        //1
+
         primaryStage.setScene(scene);
-        //2
+
         primaryStage.show();
         primaryStage.setTitle("Login JavaFX de Erick");
     }

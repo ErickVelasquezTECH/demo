@@ -2,15 +2,12 @@ package org.example.demo;
 
 import javafx.application.Application;
 import javafx.geometry.Orientation;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class AppFlowPane extends Application {
@@ -30,7 +27,7 @@ public class AppFlowPane extends Application {
 
         for (int i = 0; i <10 ; i++) {
             buttons1.add(new Button(String.valueOf(i)));
-            root.getChildren().add(buttons1);
+            root.getChildren().addAll(buttons1);
         }
         for (var button:buttons){
             button = new Button(String.valueOf(cont));
