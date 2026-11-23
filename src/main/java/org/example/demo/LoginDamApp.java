@@ -3,7 +3,6 @@ package org.example.demo;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,8 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class LoginDamApp extends Application {
 
@@ -25,39 +23,33 @@ public class LoginDamApp extends Application {
     @Override
     public void start(Stage primaryStage){
 
-        VBox root = new VBox();
+        VBox root = new VBox(5);
 
 
         Label labelTitle = new Label("LOGIN DAM");
         labelTitle.setFont(new Font("Arial", 18));
 
 
-        Label user = new Label("Usuario");
+        Label userLbl = new Label("Usuario");
         TextField userText = new TextField();
 
-        Label password = new Label("Contraseña");
+        Label passwordLbl = new Label("Contraseña");
         PasswordField passwordField = new PasswordField();
 
-        Button bt1 = new Button("Entrar");
-        Button bt2 = new Button("Salir");
+        Button buttonEntrar = new Button("Entrar");
+        Button buttonSalir = new Button("Salir");
 
 
+        HBox botones = new HBox(30, buttonEntrar, buttonSalir);
 
-
-
-        List<Node> nodes = new ArrayList<>();
-        nodes.add(labelTitle);
-        nodes.add(user);
-        nodes.add(userText);
-        nodes.add(password);
-        nodes.add(passwordField);
-
-        HBox botones=new HBox(30);
-        botones.getChildren().add(bt1);
-        botones.getChildren().add(bt2);
-
-
-        nodes.add(botones);
+        root.getChildren().addAll(
+                labelTitle,
+                userLbl,
+                userText,
+                passwordLbl,
+                passwordField,
+                botones
+        );
 
 
         root.setAlignment(Pos.CENTER);
@@ -69,12 +61,50 @@ public class LoginDamApp extends Application {
         VBox.setMargin(passwordField, new Insets(5, 30, 20, 30));
 
 
+        labelTitle.setStyle(
+                "-fx-font-weight: bold;"
+        );
+        userLbl.setStyle(
+                "-fx-font-weight: bold;"
+        );
+        passwordLbl.setStyle(
+                "-fx-font-weight: bold;"
+        );
+
+        userText.setStyle(
+                "-fx-background-color: #ffffff;" +
+                "-fx-border-color: #bec6df;" +
+                "-fx-border-radius: 8;" +
+                "-fx-padding: 10;"
+        );
+        passwordField.setStyle(
+                "-fx-background-color: #ffffff;" +
+                        "-fx-border-color: #bec6df;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-padding: 10;"
+        );
+
+        buttonEntrar.setStyle(
+                "-fx-background-color: #304486;" +
+                        "-fx-text-fill: #ffffff;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-background-radius: 10;" +
+                        "-fx-padding: 10 20;"
+        );
+
+        buttonSalir.setStyle(
+                "-fx-background-color: #9b6161;" +
+                        "-fx-text-fill: #ffffff;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-background-radius: 10;" +
+                        "-fx-padding: 10 20;"
+        );
+
         scene = new Scene(root, 400, 450);
 
-        primaryStage.setScene(scene);
-
-        primaryStage.show();
         primaryStage.setTitle("Login JavaFX de Erick");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
