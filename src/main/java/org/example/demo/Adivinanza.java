@@ -55,7 +55,7 @@ public class Adivinanza extends Application {
         VBox.setMargin(userText, new Insets(5, 30, 5, 30));
         VBox.setMargin(show, new Insets(5, 30, 30, 30));
 
-        root.setStyle("-fx-background-color: #1729f3;");
+        root.setStyle("-fx-background-color: #000dbb;");
         labelTitle.setStyle("-fx-text-fill: #ffffff;");
         user.setStyle("-fx-text-fill: #ffffff;");
         show.setStyle("-fx-text-fill: #ffffff;");
