@@ -5,8 +5,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -17,49 +15,50 @@ public class AppGridPane extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        GridPane root=new GridPane(5.0,5.0);
+        GridPane root = new GridPane();
+        root.setHgap(8);
+        root.setVgap(8);
+        root.setPadding(new Insets(12));
 
-        TextField lblscanner=new TextField ();
-        root.add(lblscanner,1,1,4,1);
-        String[]strings={"7","8","9","+","4","5","6","-","1","2","3","x","C","0","=","/"};
-        int colum=1;
-        int row1=2;
-        for (int i = 0; i <strings.length ; i++) {
-            String temp=strings[i];
+        TextField lblscanner = new TextField("2");
+        lblscanner.setAlignment(Pos.CENTER_RIGHT);
+        lblscanner.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
-            root.add(new Button(temp), colum,row1);
 
-            if (colum==4){
-                colum=1;
-                row1++;
-            }else {
-                colum++;
+
+        GridPane.setMargin(lblscanner, new Insets(0, 0, 8, 0));
+        root.add(lblscanner, 0, 0, 4, 1);
+
+        String[] strings = {"7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "x", "C", "0", "=", "/"};
+        int colum = 0;
+        int row = 1;
+
+        for (String temp : strings) {
+            Button btn = new Button(temp);
+            btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+            root.add(btn, colum, row);
+            colum++;
+            if (colum == 4) {
+                colum = 0;
+                row++;
             }
-
         }
 
         for (int i = 0; i < 4; i++) {
-            ColumnConstraints col = new ColumnConstraints();
-            col.setHgrow(Priority.ALWAYS); // Permite crecer a lo ancho
-            col.setFillWidth(true);
-            root.getColumnConstraints().add(col);
+            ColumnConstraints colGrid = new ColumnConstraints();
+            colGrid.setHgrow(Priority.ALWAYS);
+            root.getColumnConstraints().add(colGrid);
         }
 
-// Para tus 5 filas (1 del TextField + 4 de botones)
         for (int i = 0; i < 5; i++) {
-            RowConstraints row = new RowConstraints();
-            row.setVgrow(Priority.ALWAYS); // Permite crecer a lo alto
-            row.setFillHeight(true);
-            root.getRowConstraints().add(row);
+            RowConstraints rowGrid = new RowConstraints();
+            rowGrid.setVgrow(Priority.ALWAYS);
+            root.getRowConstraints().add(rowGrid);
         }
 
-        VBox.setMargin(lblscanner, new Insets(30));
-
-
-
-        scene=new Scene(root, 500,500);
+        Scene scene = new Scene(root, 320, 280);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("GridPane - JavaFX");
+        primaryStage.setTitle("JavaFX Calculator");
         primaryStage.show();
 
     }
