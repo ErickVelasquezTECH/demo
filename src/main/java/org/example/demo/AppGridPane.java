@@ -15,18 +15,21 @@ public class AppGridPane extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         GridPane root = new GridPane();
         root.setHgap(8);
         root.setVgap(8);
         root.setPadding(new Insets(12));
 
-        TextField lblscanner = new TextField("2");
+        TextField lblscanner = new TextField("5+5");
         lblscanner.setAlignment(Pos.CENTER_RIGHT);
         lblscanner.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
 
 
         GridPane.setMargin(lblscanner, new Insets(0, 0, 8, 0));
+        GridPane.setVgrow(lblscanner, Priority.ALWAYS);
+
         root.add(lblscanner, 0, 0, 4, 1);
 
         String[] strings = {"7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "x", "C", "0", "=", "/"};
@@ -36,6 +39,11 @@ public class AppGridPane extends Application {
         for (String temp : strings) {
             Button btn = new Button(temp);
             btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+
+            GridPane.setHgrow(btn, Priority.ALWAYS);
+            GridPane.setVgrow(btn, Priority.ALWAYS);
+
+
             root.add(btn, colum, row);
             colum++;
             if (colum == 4) {
@@ -44,17 +52,7 @@ public class AppGridPane extends Application {
             }
         }
 
-        for (int i = 0; i < 4; i++) {
-            ColumnConstraints colGrid = new ColumnConstraints();
-            colGrid.setHgrow(Priority.ALWAYS);
-            root.getColumnConstraints().add(colGrid);
-        }
 
-        for (int i = 0; i < 5; i++) {
-            RowConstraints rowGrid = new RowConstraints();
-            rowGrid.setVgrow(Priority.ALWAYS);
-            root.getRowConstraints().add(rowGrid);
-        }
 
         Scene scene = new Scene(root, 320, 280);
         primaryStage.setScene(scene);
