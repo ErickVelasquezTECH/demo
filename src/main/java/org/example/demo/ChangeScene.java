@@ -46,37 +46,13 @@ public class ChangeScene extends Application {
         VBox.setMargin(passwordField, new Insets(5, 30, 20, 30));
 
 
-
         //Nuevo root
-        VBox root2=new VBox(5);
+        VBox root2 = new VBox(5);
         root2.setAlignment(Pos.CENTER);
         Label labelwelcome = new Label("Bienvenido!!");
         labelwelcome.setFont(new Font("Arial", 30));
-        labelwelcome.setStyle(
-                "-fx-font-weight: bold;"
-        );
         Button buttonCerrarSesion = new Button("Cerrar Sesion");
         root2.getChildren().addAll(labelwelcome, buttonCerrarSesion);
-
-        buttonCerrarSesion.setStyle(
-                "-fx-background-color: #ff5151;" +
-                        "-fx-text-fill: #ffffff;" +
-                        "-fx-font-weight: bold;" +
-                        "-fx-background-radius: 10;" +
-                        "-fx-padding: 10 20;"
-        );
-
-        buttonEntrar.setOnAction(event -> {
-            scene=new Scene(root2, 400, 400);
-            primaryStage.setScene(scene);
-        });
-
-
-
-
-
-
-
 
 
         //ESTILOS
@@ -89,7 +65,6 @@ public class ChangeScene extends Application {
         passwordLbl.setStyle(
                 "-fx-font-weight: bold;"
         );
-
         userText.setStyle(
                 "-fx-background-color: #ffffff;" +
                         "-fx-border-color: #bec6df;" +
@@ -102,7 +77,6 @@ public class ChangeScene extends Application {
                         "-fx-border-radius: 8;" +
                         "-fx-padding: 10;"
         );
-
         buttonEntrar.setStyle(
                 "-fx-background-color: #304486;" +
                         "-fx-text-fill: #ffffff;" +
@@ -110,7 +84,6 @@ public class ChangeScene extends Application {
                         "-fx-background-radius: 10;" +
                         "-fx-padding: 10 20;"
         );
-
         buttonSalir.setStyle(
                 "-fx-background-color: #9b6161;" +
                         "-fx-text-fill: #ffffff;" +
@@ -118,6 +91,27 @@ public class ChangeScene extends Application {
                         "-fx-background-radius: 10;" +
                         "-fx-padding: 10 20;"
         );
+        buttonCerrarSesion.setStyle(
+                "-fx-background-color: #ff5151;" +
+                        "-fx-text-fill: #ffffff;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-background-radius: 10;" +
+                        "-fx-padding: 10 20;"
+        );
+        labelwelcome.setStyle(
+                "-fx-font-weight: bold;"
+        );
+
+
+        
+
+
+        buttonEntrar.setOnAction(event -> {
+                scene = new Scene(root2, 400, 400);
+                primaryStage.setScene(scene);
+
+        });
+
 
         scene = new Scene(root, 400, 450);
 
