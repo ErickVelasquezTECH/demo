@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class AppGridPane extends Application {
+public class CalculadoraApp extends Application {
     private static Scene scene;
 
 
@@ -56,7 +56,7 @@ public class AppGridPane extends Application {
 
         Scene scene = new Scene(root, 320, 280);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("JavaFX Calculator");
+        primaryStage.setTitle("Calculadora - Erick");
         primaryStage.show();
 
     }
